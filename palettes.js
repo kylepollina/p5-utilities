@@ -12,10 +12,20 @@ function get1000(n) {
 
 function randomPalette100() {
     let index = floor(random(0, p100.palettes.length));
-    return {"palette": p100.palettes[index], "index": index};
+    return p100.palettes[index];
 }
 
 function randomPalette1000() {
+    let index = floor(random(0, p1000.palettes.length));
+    return p1000.palettes[index];
+}
+
+function randomPaletteIndex100() {
+    let index = floor(random(0, p100.palettes.length));
+    return {"palette": p100.palettes[index], "index": index};
+}
+
+function randomPaletteIndex1000() {
     let index = floor(random(0, p1000.palettes.length));
     return {"palette": p1000.palettes[index], "index": index};
 }

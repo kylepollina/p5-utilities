@@ -33,8 +33,10 @@ class Phyllotaxis {
             let x = radius * cos(angle) + width/2;
             let y = radius * sin(angle) + height/2;
 
-            x += floor(this.randomness * random(0,10));
-            y += floor(this.randomness * random(0,10));
+            if(this.randomness != 0) {
+                x += floor(this.randomness * random(0,10));
+                y += floor(this.randomness * random(0,10));
+            }
 
             let p = new Point(floor(x), floor(y));
             points.push(p);
@@ -60,8 +62,10 @@ class Phyllotaxis {
             let x = radius * cos(angle) + width/2;
             let y = radius * sin(angle) + height/2;
 
-            x += floor(this.randomness * random(0,10));
-            y += floor(this.randomness * random(0,10));
+            if(this.randomness != 0) {
+                x += floor(this.randomness * random(0,10));
+                y += floor(this.randomness * random(0,10));
+            }
 
             let p = [x, y];
             points.push(p);
