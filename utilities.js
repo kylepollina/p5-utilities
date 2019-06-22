@@ -12,11 +12,11 @@ function shuffle(a) {
 
 function graphicsMask(source, mask) {
     // source image
-    let sourceImage = createImage(source.width, source.height);
+    var sourceImage = createImage(source.width, source.height);
     sourceImage.copy(source, 0, 0, source.width, source.height, 0, 0, source.width, source.height);
 
     // mask image
-    let maskImage = createImage(mask.width, mask.height);
+    var maskImage = createImage(mask.width, mask.height);
     maskImage.copy(mask, 0, 0, mask.width, mask.height, 0, 0, mask.width, mask.height);
 
     // make image
