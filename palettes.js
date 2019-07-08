@@ -2,11 +2,11 @@
  ** Palletes.js **
  ****************/
 
-function get100(n) {
+function getPalette100(n) {
     return p100.palettes[n];
 }
 
-function get1000(n) {
+function getPalette1000(n) {
     return p1000.palettes[n];
 }
 
