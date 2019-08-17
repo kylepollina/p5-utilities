@@ -7,7 +7,7 @@ class Turtle {
         this.x = 0;
         this.y = 0;
         this.heading = 0;       // Heading in degrees
-        this.penState = 0;     // 0 for pen down, 1 for pen up
+        this.penState = 0;      // 0 for pen down, 1 for pen up
         this.steps = 0;         // Keeps track of the amount of steps
         this.stack = [];
     }
@@ -17,8 +17,9 @@ class Turtle {
         let x1 = this.x + step*cos(radians(this.heading));
         let y1 = this.y + step*sin(radians(this.heading));
 
-        if(this.penState == 0)
+        if(this.penState == 0) {
             line(this.x, this.y, x1, y1); // connect the old and the new
+        }
 
         // update the turtle's position:
         this.x = x1;

@@ -22,6 +22,10 @@ function randomPalette1000() {
     return p1000.palettes[index];
 }
 
+function randColor(palette) {
+    return color(palette[floor(random(5))]);
+}
+
 var p100 = {
     getWithIndex: function(n) {
         return {"palette": this.palettes[n], "index": n}
