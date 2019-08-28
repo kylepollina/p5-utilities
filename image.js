@@ -8,8 +8,8 @@ function getAvgColor(img, xmin, ymin, xmax, ymax) {
     let btot = 0;
     let total = 0;
 
-    for(let x = floor(xmin); x < ceil(xmax); x++) {
-        for(let y = floor(ymin); y < ceil(ymax); y++) {
+    for(let x = floor(xmin); x < floor(xmax); x++) {
+        for(let y = floor(ymin); y < floor(ymax); y++) {
             let index = (x + y * img.width) * 4;
 
             rtot += img.pixels[index];
