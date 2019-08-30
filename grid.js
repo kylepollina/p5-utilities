@@ -66,7 +66,7 @@ class Grid {
         for(let i = 0; i < this.tiles.length; i++) {
             let tile = this.tiles[i];
 
-            if(tile.isMouseOver()) {
+            if(tile.isMouseInside()) {
                 tile.toggleSelect();
                 if(this.singleSelect) this.clearSelected();
                 if(tile.isSelected) this.selectedTiles.push(tile);

@@ -128,7 +128,7 @@ function draw_allPalettes() {
 function draw_allPalettesCursor() {
     for(let i = 0; i < allPalettes.tiles.length; i++) {
         let tile = allPalettes.tiles[i];
-        if(tile.isMouseOver()) {
+        if(tile.isMouseInside()) {
             noFill();
             stroke(0);
             rect(tile.x, tile.y, tile.width, tile.height);
@@ -157,7 +157,7 @@ function draw_selectedPalettes() {
 function draw_selectedPalettesCursor() {
     for(let i = 0; i < selectedPalettes.tiles.length; i++) {
         let tile = selectedPalettes.tiles[i];
-        if(tile.isMouseOver() || tile.isSelected) {
+        if(tile.isMouseInside() || tile.isSelected) {
             noFill();
             stroke(0);
             rect(tile.x, tile.y, tile.width, tile.height);
