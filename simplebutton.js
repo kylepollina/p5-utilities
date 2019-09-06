@@ -37,6 +37,10 @@ class SimpleButton {
         text(this.text, this.x + this.textX, this.y + this.textY);
     }
 
+    setText(buttonText) {
+        this.text = buttonText; 
+    }
+
     isMouseOver() {
         return (this.x <= mouseX && mouseX < this.x + this.width 
                 && this.y <= mouseY && mouseY < this.y + this.height);
