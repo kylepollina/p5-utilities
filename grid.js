@@ -29,6 +29,23 @@ class Grid {
         }
     }
 
+    resize(width, height) {
+        this.width = width;
+        this.height = height;
+        this.tileWidth = this.width / this.nCols;
+        this.tileHeight = this.height / this.nRows;
+
+        for(let x = 0; x < this.nCols; x++) {
+            for(let y = 0; y < this.nRows; y++) {
+                let tileX = x * this.tileWidth + this.x;
+                let tileY = y * this.tileHeight + this.y;
+
+                let tileIndex = x + y * this.nCols;
+                this.tiles[tileIndex].resize(tileX, tileY, this.tileWidth, this.tileHeight);
+            }
+        }
+    }
+
     show() {
         for(let y = 0; y < this.nRows; y++) {
             for(let x = 0; x < this.nCols; x++) {
@@ -120,6 +137,15 @@ class Tile {
         this.isSelected = false;
         this.tileNum = tileNum;
         this.item = null;
+    }
+
+    resize(x, y, width, height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.centerX = this.x + this.width / 2;
+        this.centerY = this.y + this.height / 2;
     }
 
     setItem(item) {
