@@ -41,7 +41,7 @@ class SimpleButton {
         this.text = buttonText; 
     }
 
-    isMouseOver() {
+    isMouseInside() {
         return (this.x <= mouseX && mouseX < this.x + this.width 
                 && this.y <= mouseY && mouseY < this.y + this.height);
     }
