@@ -15,7 +15,6 @@ class Grid {
         this.tiles = [];
         this.mouseHighlight = false;
         this.singleSelect = false;
-        this.selectedTiles = [];
 
         let tileNum = 0;
         for(let y = 0; y < this.nRows; y++) {
@@ -29,7 +28,9 @@ class Grid {
         }
     }
 
-    resize(width, height) {
+    resize(xpos, ypos, width, height) {
+        this.x = xpos;
+        this.y = ypos;
         this.width = width;
         this.height = height;
         this.tileWidth = this.width / this.nCols;
@@ -47,8 +48,8 @@ class Grid {
     }
 
     show() {
-        for(let y = 0; y < this.nRows; y++) {
-            for(let x = 0; x < this.nCols; x++) {
+        for(let x = 0; x < this.nCols; x++) {
+            for(let y = 0; y < this.nRows; y++) {
                 let tile = this.getTile(x, y);
                 noFill();
 
@@ -80,35 +81,51 @@ class Grid {
     }
 
     select() {
-        for(let i = 0; i < this.tiles.length; i++) {
-            let tile = this.tiles[i];
+        // TODO: Redo this
 
-            if(tile.isMouseInside()) {
-                tile.toggleSelect();
-                if(this.singleSelect) this.clearSelected();
-                if(tile.isSelected) this.selectedTiles.push(tile);
-                else {
-                    let tileIndex = this.selectedTiles.indexOf(tile);
-                    this.selectedTiles.splice(tileIndex, 1);
-                }
+        // for(let i = 0; i < this.tiles.length; i++) {
+        //     let tile = this.tiles[i];
 
-                return this.tiles[i];
-            }
-        }
+        //     if(tile.isMouseInside()) {
+        //         tile.toggleSelect();
+        //         if(this.singleSelect) this.clearSelected();
+        //         if(tile.isSelected) this.selectedTiles.push(tile);
+        //         else {
+        //             let tileIndex = this.selectedTiles.indexOf(tile);
+        //             this.selectedTiles.splice(tileIndex, 1);
+        //         }
 
-        return null;
+        //         return this.tiles[i];
+        //     }
+        // }
+
+        // return null;
+    }
+
+    setSingleSelect(bool) {
+        this.singleSelect = bool;
     }
 
     hasSelectedTiles() {
-        return this.selectedTiles.length > 0;
+        for(let i = 0; i < this.tiles.length; i++) {
+            let tile = this.tiles[i];
+            if(tile.isSelected) return true;
+        }
+    }
+
+    getSelectedTiles() {
+        let selectedTiles = [];
+        for(let i = 0; i < this.tiles.length; i++) {
+            let tile = this.tiles[i];
+            if(tile.isSelected) selectedTiles.push(tile);
+        }
+        return selectedTiles;
     }
 
     clearSelected() {
-        for(let i = 0; i < this.selectedTiles.length; i++) {
-            let tile = this.selectedTiles[i];
-            tile.isSelected = false;
+        for(let i = 0; i < this.tiles.length; i++) {
+            this.tiles[i].isSelected = false;
         }
-        this.selectedTiles = [];
     }
 
     isMouseInside() {
