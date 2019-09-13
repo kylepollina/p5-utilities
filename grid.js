@@ -119,7 +119,8 @@ class Grid {
             let tile = this.tiles[i];
             if(tile.isSelected) selectedTiles.push(tile);
         }
-        return selectedTiles;
+        if(selectedTiles.length <= 1) return selectedTiles[0];
+        else return selectedTiles;
     }
 
     clearSelected() {
