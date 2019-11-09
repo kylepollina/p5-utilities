@@ -153,6 +153,6 @@ class Tile {
     
     show() {
         noFill();
-        rect(this.x, this.y, this.width. this.height);
+        rect(this.x, this.y, this.width, this.height);
     }
 }
