@@ -1,6 +1,4 @@
-/********************
- ** Phyllotaxis.js **
- *******************/
+/* phyllotaxis */
 
 class Phyllotaxis {
     constructor(numPoints) {

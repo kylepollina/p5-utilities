@@ -1,6 +1,4 @@
-/******************
- ** Utilities.js **
- *****************/
+/* utilities.js */
 
 function shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -28,8 +26,8 @@ function graphicsMask(source, mask) {
 function quicksort(origArray) {
 	if (origArray.length <= 1) {
 		return origArray;
-	} else {
-
+	} 
+    else {
 		var left = [];
 		var right = [];
 		var newArray = [];
@@ -39,7 +37,8 @@ function quicksort(origArray) {
 		for (var i = 0; i < length; i++) {
 			if (origArray[i] <= pivot) {
 				left.push(origArray[i]);
-			} else {
+			} 
+            else {
 				right.push(origArray[i]);
 			}
 		}

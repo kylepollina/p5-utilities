@@ -1,6 +1,4 @@
-/*************
- ** Grid.js **
- ************/
+/* grid.js */
 
 class Grid {
     constructor(x, y, width, height, nCols, nRows) {
@@ -13,9 +11,12 @@ class Grid {
         this.tileWidth = this.width / this.nCols;
         this.tileHeight = this.height / this.nRows;
         this.tiles = [];
-        this.mouseHighlight = false;
         this.singleSelect = false;
 
+        this.setupTiles();
+    }
+
+    setupTiles() {
         let tileNum = 0;
         for(let y = 0; y < this.nRows; y++) {
             for(let x = 0; x < this.nCols; x++) {
@@ -28,14 +29,18 @@ class Grid {
         }
     }
 
-    resize(xpos, ypos, width, height) {
-        this.x = xpos;
-        this.y = ypos;
-        this.width = width;
-        this.height = height;
+    resize(newXPos, newYPos, newWidth, newHeight) {
+        this.x = newXPos;
+        this.y = newYPos;
+        this.width = newWidth;
+        this.height = newHeight;
         this.tileWidth = this.width / this.nCols;
         this.tileHeight = this.height / this.nRows;
 
+        this.resizeTiles();
+    }
+
+    resizeTiles() {
         for(let x = 0; x < this.nCols; x++) {
             for(let y = 0; y < this.nRows; y++) {
                 let tileX = x * this.tileWidth + this.x;
@@ -48,20 +53,8 @@ class Grid {
     }
 
     show() {
-        for(let x = 0; x < this.nCols; x++) {
-            for(let y = 0; y < this.nRows; y++) {
-                let tile = this.getTile(x, y);
-                noFill();
-
-                if(this.mouseHighlight && tile.isMouseOver() || tile.isSelected == true) {
-                    stroke(255);
-                }
-                else {
-                    stroke(0);
-                }
-               
-                rect(tile.x, tile.y, tile.width, tile.height);
-            }
+        for(let i = 0; i < this.tiles.length; i++) {
+            this.tiles[i].show();
         }
     }
 
@@ -78,28 +71,6 @@ class Grid {
     setItem(x, y, item) {
         let index = y * this.nCols + x;
         this.tiles.item = item;
-    }
-
-    select() {
-        // TODO: Redo this
-
-        // for(let i = 0; i < this.tiles.length; i++) {
-        //     let tile = this.tiles[i];
-
-        //     if(tile.isMouseInside()) {
-        //         tile.toggleSelect();
-        //         if(this.singleSelect) this.clearSelected();
-        //         if(tile.isSelected) this.selectedTiles.push(tile);
-        //         else {
-        //             let tileIndex = this.selectedTiles.indexOf(tile);
-        //             this.selectedTiles.splice(tileIndex, 1);
-        //         }
-
-        //         return this.tiles[i];
-        //     }
-        // }
-
-        // return null;
     }
 
     setSingleSelect(bool) {
@@ -123,7 +94,7 @@ class Grid {
         else return selectedTiles;
     }
 
-    clearSelected() {
+    clearSelectedTiles() {
         for(let i = 0; i < this.tiles.length; i++) {
             this.tiles[i].isSelected = false;
         }
@@ -178,5 +149,10 @@ class Tile {
     toggleSelect() {
         if(this.isSelected) this.isSelected = false;
         else this.isSelected = true;
+    }
+    
+    show() {
+        noFill();
+        rect(this.x, this.y, this.width. this.height);
     }
 }

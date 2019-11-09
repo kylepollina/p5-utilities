@@ -1,6 +1,4 @@
-/*********************
- ** SimpleButton.js **
- ********************/
+/* simplebutton.js */
 
 class SimpleButton {
     constructor(x, y, width, height) {

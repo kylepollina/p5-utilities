@@ -1,6 +1,6 @@
-/****************
- ** Stripes.js **
- ***************/
+/* stripes.js */
+
+// TODO: Redo this 
 
 class StripeGradient {
     constructor(x, y, width, height, col1, col2, divisions) {

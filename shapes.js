@@ -1,21 +1,18 @@
-/*************
- * Shapes.js *
- ************/
+/* shapes */
+
+function randomPoints(numPoints) {
+    var points = [];
+    for(let i = 0; i < numPoints; i++) {
+        points.push(new Point(~~random(width), ~~random(height)));
+    }
+    return points;
+}
 
 class Point {
     constructor(x, y) {
         this.x = x;
         this.y = y;
     }
-}
-
-/* returns an array of n random points within the canvas */
-function random_points(n) {
-    var points = [];
-    for(let i = 0; i < n; i++) {
-        points.push(new Point(floor(width), floor(height)));
-    }
-    return points;
 }
 
 class Circle {
@@ -37,12 +34,20 @@ class Triangle {
     }
 }
 
-class Rect {
+class Rectangle {
     constructor(x, y, width, height) {
         this.x = x;
         this.y = y; 
         this.width = width;
         this.height = height;
+    }
+}
+
+class Square {
+    constructor(x, y, sidelength) {
+        this.x = x;
+        this.y = y;
+        this.sidelength = sidelength;
     }
 }
 

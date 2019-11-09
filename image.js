@@ -1,6 +1,4 @@
-/************
- * Image.js *
- ***********/
+/* image.js */
 
 function getAvgColor(img, xmin, ymin, xmax, ymax) {
     let rtot = 0;
