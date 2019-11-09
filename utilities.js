@@ -8,21 +8,6 @@ function shuffle(a) {
     return a;
 }
 
-function graphicsMask(source, mask) {
-    // source image
-    var sourceImage = createImage(source.width, source.height);
-    sourceImage.copy(source, 0, 0, source.width, source.height, 0, 0, source.width, source.height);
-
-    // mask image
-    var maskImage = createImage(mask.width, mask.height);
-    maskImage.copy(mask, 0, 0, mask.width, mask.height, 0, 0, mask.width, mask.height);
-
-    // make image
-    sourceImage.mask(maskImage);
-
-    return sourceImage;
-}
-
 function quicksort(origArray) {
 	if (origArray.length <= 1) {
 		return origArray;

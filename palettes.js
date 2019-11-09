@@ -1,19 +1,19 @@
 /* palettes.js */
 
 function getPalette(n) {
-    return colors[n];
+    return allPalettes[n];
 }
 
 function randomPalette() {
-    let index = ~~random(colors.length);
+    let index = ~~random(allPalettes.length);
     console.log("Palette index: " + index);
-    return colors[index];
+    return allPalettes[index];
 }
 
 function randomPalette100() {
     let index = ~~random(100);
     console.log("Palette index: " + index);
-    return colors[index];
+    return allPalettes[index];
 }
 
 function mixedPalette() {
@@ -26,7 +26,11 @@ function mixedPalette() {
     return mixed;
 }
 
-var colors =
+function numPalettes() {
+    return allPalettes.length;
+}
+
+var allPalettes =
     [
         [
             "#69d2e7",

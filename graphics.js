@@ -1,4 +1,16 @@
-/* image.js */
+/* graphics.js */
+
+function graphicsMask(source, mask) {
+    var sourceImage = createImage(source.width, source.height);
+    sourceImage.copy(source, 0, 0, source.width, source.height, 0, 0, source.width, source.height);
+
+    var maskImage = createImage(mask.width, mask.height);
+    maskImage.copy(mask, 0, 0, mask.width, mask.height, 0, 0, mask.width, mask.height);
+
+    sourceImage.mask(maskImage);
+
+    return sourceImage;
+}
 
 function getAvgColor(img, xmin, ymin, xmax, ymax) {
     let rtot = 0;
