@@ -31,6 +31,12 @@ class Triangle {
         this.y2 = y2;
         this.x3 = x3;
         this.y3 = y3;
+
+        this.color = color(0, 0, 0);
+    }
+
+    setColor(r, g, b) {
+        this.color = color(r, g, b);
     }
 }
 

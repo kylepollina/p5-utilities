@@ -20,7 +20,17 @@ function mixedPalette() {
     let mixed = [];
     for(let i = 0; i < 5; i++) {
         let palette = randomPalette();
-        mixed.push(palette[~~random(5)]);
+        mixed.push(palette[~~Math.random(5)]);
+    }
+    console.log("Mixed palette: " + mixed);
+    return mixed;
+}
+
+function mixedPaletteSizeN(n) {
+    let mixed = [];
+    for(let i = 0; i < n; i++) {
+        let palette = randomPalette();
+        mixed.push(palette[~~Math.random(5)]);
     }
     console.log("Mixed palette: " + mixed);
     return mixed;
