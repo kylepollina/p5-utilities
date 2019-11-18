@@ -52,6 +52,18 @@ class Grid {
         }
     }
 
+    innerGrid(nCols, nRows) {
+        let tile1 = this.getTile(1, 1);
+        let tile2 = this.getTile(this.nCols - 2, this.nRows - 2);
+
+        let x = tile1.x;
+        let y = tile1.y;
+        let w = tile2.x + tile2.width - tile1.x;
+        let h = tile2.y + tile2.height - tile1.y;
+
+        return new Grid(tile1.x, tile1.y, w, h, nCols, nRows);
+    }
+
     show() {
         for(let i = 0; i < this.tiles.length; i++) {
             this.tiles[i].show();
